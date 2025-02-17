@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -14,65 +12,51 @@ export default function LanguageChanger() {
   const currentPathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown visibility
 
+  // Function to change language
   const handleChange = (newLocale: string) => {
     if (newLocale === currentLocale) return;
 
     // Set a cookie to save the preferred locale
-    const days = 30;
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    const expires = "; expires=" + date.toUTCString();
-    document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${30 * 24 * 60 * 60}`;
 
-    // Redirect to the new locale path
-    let newPath;
-    if (
-      currentLocale === "en" && // Assuming 'en' is the default locale
-      !currentPathname.includes("/en")
-    ) {
-      newPath = `/${newLocale}${currentPathname}`;
-    } else {
+    // Determine the new path
+    let newPath = currentPathname;
+    if (currentPathname.startsWith(`/${currentLocale}`)) {
       newPath = currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
+    } else {
+      newPath = `/${newLocale}${currentPathname}`;
     }
-    window.location.href = newPath;
+
+    // Change locale and redirect
+    i18n.changeLanguage(newLocale);
+    router.push(newPath);
   };
 
   return (
-    <div className="absolute top-[9px] left-[50px] md:left-0">
-      {/* Language Switcher Button */}
+    <div className="relative z-50">
       <button
-        className="flex xl:w-[103px] h-[38px] pt-[8px] pr-[13px] pb-[8px] pl-[13px] gap-[8px] items-center bg-[rgba(231,240,241,0.2)] rounded-[8px] border-none z-[8]"
         onClick={() => setDropdownOpen(!dropdownOpen)}
+        className="h-[29px] md:w-[132px] shrink-0 basis-auto  text-[16px] font-medium leading-[29px] text-[#fff] relative text-start whitespace-nowrap z-[9]"
       >
-        <div className="w-[20px] h-[20px] shrink-0 bg-[url('/assets/images/global.svg')] bg-cover bg-no-repeat relative z-[9]" />
-        <span className="hidden md:flex xl:w-[49px] h-[22px] justify-start items-start text-[14px] font-normal leading-[22px] text-[#5d9d9f] relative z-10">
-          {currentLocale === "ar" ? "العربية" : "English"}
-        </span>
+        {currentLocale === "en" ? "English" : "العربية"}
       </button>
 
-      {/* Dropdown Menu */}
       {dropdownOpen && (
         <motion.div
-          className="absolute top-[45px] left-0 w-[120px] bg-white shadow-lg rounded-lg z-[9] flex flex-col"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
+          className="absolute start-0 mt-2 bg-white text-black rounded shadow-lg"
         >
           <button
-            onClick={() => {
-              setDropdownOpen(false);
-              handleChange("ar");
-            }}
-            className="px-4 py-2 text-[14px] text-[#5d9d9f] hover:bg-gray-100"
+            onClick={() => handleChange("ar")}
+            className="block px-4 py-2 hover:bg-gray-200 w-full text-start"
           >
             العربية
           </button>
           <button
-            onClick={() => {
-              setDropdownOpen(false);
-              handleChange("en");
-            }}
-            className="px-4 py-2 text-[14px] text-[#5d9d9f] hover:bg-gray-100"
+            onClick={() => handleChange("en")}
+            className="block px-4 py-2 hover:bg-gray-200 w-full text-start"
           >
             English
           </button>

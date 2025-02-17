@@ -19,11 +19,10 @@
     "site_links": "Site Links",
     "copyright": "2025 ©, All rights reserved for Etemad"
   }
- , "menu": {
-  "home": "Home",
-  "products": "Products",
-  "about_us": "About Us",
-  "calculate_finance": "Calculate Finance",
-  "contact_us": "Contact Us"
-}
+ ,   "home": "Home",
+ "products": "Products",
+ "about": "About Us",
+ "blogs": "Blogs",
+ "contact": "Contact Us",
+ "expo": "Expo"
 }

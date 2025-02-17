@@ -1,100 +1,57 @@
 "use client";
 
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import LanguageChanger from "../LanguageChanger";
+import MenuItemsDesktop from "./MenuItemsDesktop";
+import { IoMenu, IoClose } from "react-icons/io5"; // Import icons for menu toggle
 import { useTranslation } from "react-i18next";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-    },
-  },
-};
+ function MobileMenu({ locale,socialIcons }: { locale: string,socialIcons:any }) {
+  const { t } =  useTranslation("common");
+  const [menuOpen, setMenuOpen] = useState(false); // State for the mobile menu
 
-const itemVariants = {
-  hidden: { opacity: 0, y: -10 },
-  visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -10 },
-};
-
-function MobileMenu({
-  locale,
-  className,
-}: {
-  locale: string;
-  className?: string;
-}) {
-  const [isOpen, setIsOpen] = useState(false); // State to toggle menu visibility
-  const { t } = useTranslation("common");
 
   return (
-    <div className="flex md:hidden   xl:w-[103px] h-[38px] pt-[8px] pr-[13px] pb-[8px] pl-[13px] gap-[8px] items-center flex-nowrap  border-none absolute top-[9px] left-0 z-[8] pointer">
-      {/* Hamburger Button */}
-      <button
-        className="text-[#5d9d9f] text-xl"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        aria-controls="mobile-menu"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-6 h-6"
+    <header className="fixed block z-50  md:hidden top-0 w-full bg-black bg-opacity-40 shadow-md">
+      <div className="container mx-auto px-4 lg:px-24 flex items-center justify-between py-4">
+        {/* Mobile Menu Toggle Button */}
+        <button
+          className="lg:hidden text-white text-3xl"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
+          {menuOpen ? <IoClose /> : <IoMenu />}
+        </button>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            id="mobile-menu"
-            className="absolute top-20 left-0 w-[100vw] bg-white shadow-lg z-50 p-4 flex flex-col items-center gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            {/* Menu Items */}
-            {[
-              { label: t("menu.home"), href: "/" },
-              { label: t("menu.products"), href: "/products" },
-              { label: t("menu.about_us"), href: "/about" },
-              { label: t("menu.calculate_finance"), href: "/calculator" },
-              { label: t("menu.contact_us"), href: "/contact" },
-            ].map((item, index) => (
-              <motion.a
+        {/* Logo */}
+        <div className="w-[118px] h-[56px] bg-[url('/assets/images/logo.svg')] bg-contain bg-no-repeat"></div>
+
+      </div>
+
+      {/* Mobile Menu (Shown when open) */}
+      {menuOpen && (
+        <div className="lg:hidden absolute top-20 left-0 w-full bg-black bg-opacity-90 p-4">
+          <nav className="flex flex-col items-center gap-4">
+            <MenuItemsDesktop t={t} />
+          </nav>
+          <div className="flex justify-center mt-4 gap-4">
+            {socialIcons.map((icon:any, index:number) => (
+              <a
                 key={index}
-                href={item.href}
-                className="text-[#5d9d9f] text-[14px] font-medium"
-                variants={itemVariants}
+                href={icon.url || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-6 h-6"
               >
-                {item.label}
-              </motion.a>
+                <img src={icon.icon} alt={`Social Icon ${index + 1}`} />
+              </a>
             ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          </div>
+          <div className="flex justify-center mt-4">
+            <LanguageChanger />
+          </div>
+        </div>
+      )}
+    </header>
   );
 }
 

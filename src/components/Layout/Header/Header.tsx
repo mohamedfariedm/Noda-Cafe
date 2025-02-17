@@ -1,36 +1,54 @@
 import initTranslations from "@/app/i18n";
 import Container from "../Container";
-import DesktopMenu from "./DesktopMenu";
-import MobileMenu from "./MobileMenu";
 import LanguageChanger from "../LanguageChanger";
 import MenuItemsDesktop from "./MenuItemsDesktop";
 import { Logo } from "@/components/Main";
+import MobileMenu from "./MobileMenu";
 
 async function Header({ locale }: { locale: string }) {
 
   const { t } = await initTranslations(locale, ["common"]);
-
+  const socialIcons = [
+    {url:"",icon:"/assets/images/socialicons/snapchat.svg"},
+    {url:"",icon:"/assets/images/socialicons/new-twitter.svg"},
+    {url:"",icon:"/assets/images/socialicons/whatsapp.svg"},
+    {url:"",icon:"/assets/images/socialicons/linkedin.svg"},
+    {url:"",icon:"/assets/images/socialicons/instagram.svg"},
+      ];
   return (
-    <header className="w-full h-20  backdrop-blur-[19.20px] absolute top-0 z-50">
-      <Container className="   xl:w-[1152px] h-[55px]  mx-auto mt-[33px]">
-        <nav className="w-full flex relative  justify-between flex-row-reverse items-center h-full">
-          <Logo/>
-<MenuItemsDesktop t={t} locale={locale}/>
+    <>  
+<div className=" absolute top-0 hidden md:flex w-full xl:w-[1440px] pt-[24px] pr-0 pb-[24px] pl-0 flex-col items-start flex-nowrap  mx-auto my-0">
+  <div className="flex pt-0 pr-[100px] pb-[8px] pl-[100px] justify-between items-center self-stretch shrink-0 flex-nowrap relative">
 
-<div dir="ltr" className="flex   md:w-[40px] md:hover:w-[120px] transition-all duration-1000 h-[38px] pt-[8px] pr-[10px] pb-[8px] pl-[10px] gap-[8px] items-center flex-nowrap bg-[rgba(231,240,241,0.2)] rounded-[8px] absolute top-[9px] start-[100px] sm:start-[115px] overflow-hidden z-[11]">
-  <span  className="flex   xl:w-[69px] h-[22px] justify-end items-start shrink-0 basis-auto ltr:text-[12px]  rtl:text-[14px] font-normal leading-[22px] text-[#5d9d9f] absolute top-[8px] left-[41px] text-start whitespace-nowrap z-[13]">
-    {t("menu.contact_us")}
-  </span>
-  <div className=" w-[20px] h-[20px] shrink-0 bg-[url('/assets/images/customer-support.svg')] bg-cover bg-no-repeat relative z-[12]" />
+<LanguageChanger/>
+    <div className="w-[118.039px] h-[56px] shrink-0 bg-[url('/assets/images/logo.svg')] bg-cover bg-no-repeat relative overflow-hidden z-[7]" />
+    <div className="flex w-[132px] gap-[8px] items-center shrink-0 flex-nowrap relative z-[1]">
+  {socialIcons.map((icon, index) => (
+    <a
+      key={index}
+      href={icon.url || "#"} // Set the correct social link or keep as "#" if missing
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-[20px] h-[20px] shrink-0 relative"
+    >
+      <img
+        src={icon.icon}
+        alt={`Social Icon ${index + 1}`}
+        className="w-full h-full object-cover"
+      />
+    </a>
+  ))}
 </div>
-<LanguageChanger />
- {/* Mobile Navigation Menu */}
- <MobileMenu locale={locale} />
+
+ 
+  </div>
+
+<MenuItemsDesktop t={t} />
+</div>
+    <MobileMenu locale={locale} socialIcons={socialIcons} />
+    </>
 
 
-        </nav>
-      </Container>
-    </header>
   );
 }
 
