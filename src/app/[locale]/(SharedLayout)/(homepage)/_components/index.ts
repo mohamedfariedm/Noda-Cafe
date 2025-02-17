@@ -1,5 +1,5 @@
 export { default as Hero } from "./Hero";
-export { default as EasyWay } from "./EasyWay";
+export { default as CofeTrip } from "./CofeTrip";
 export { default as Calculate } from "./Calculate";
 export { default as AboutApp } from "./AboutApp";
 export { default as Numbers } from "./Numbers";

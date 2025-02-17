@@ -17,6 +17,7 @@ async function Header({ locale }: { locale: string }) {
       ];
   return (
     <>  
+    <div className="flex justify-center items-start">
 <div className=" absolute top-0 hidden md:flex w-full xl:w-[1440px] pt-[24px] pr-0 pb-[24px] pl-0 flex-col items-start flex-nowrap  mx-auto my-0">
   <div className="flex pt-0 pr-[100px] pb-[8px] pl-[100px] justify-between items-center self-stretch shrink-0 flex-nowrap relative">
 
@@ -45,6 +46,8 @@ async function Header({ locale }: { locale: string }) {
 
 <MenuItemsDesktop t={t} />
 </div>
+
+    </div>
     <MobileMenu locale={locale} socialIcons={socialIcons} />
     </>
 

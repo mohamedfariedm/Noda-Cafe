@@ -7,7 +7,6 @@ import {
   Blogs,
   Calculate,
   Certifications,
-  EasyWay,
   Faq,
   Hero,
   Numbers,
@@ -17,6 +16,7 @@ import {
   Values,
 } from "./_components";
 import { Features } from "@/components/Shared";
+import CofeTrip from "./_components/CofeTrip";
 
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
 
@@ -25,10 +25,10 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   return (
     <section className="bg-[#281708] ">
       <Hero t={t}  />
-       <div className="">
+       <div className="mt-[96px] flex flex-col gap-[96px] px-5 xl:px-0">
       <AboutApp t={t}/>
+      <CofeTrip t={t}/>
       {/*
-      <EasyWay t={t}/>
       <Products t={t}/>
       <Calculate />
       <Faq/>

@@ -1,5 +1,22 @@
 {
   "hero_title": "Start your day with a cup of happiness",
   "hero_subtitle": "At Nonda Coffee, we believe that coffee is more than just a drink; it's an experience that inspires you and gives your day a great start.",
-  "contact_us": "Contact Us"
+  "contact_us": "Contact Us",
+  "about": {
+    "title": "About Us",
+    "subtitle": "Our Story with Coffee",
+    "description": "Nonda Coffee was founded with a passion for redefining the coffee experience. We started our journey from a small farm that gathers the finest coffee beans, and our vision has expanded to bring specialty coffee to enthusiasts everywhere. We work closely with farmers to ensure quality and sustainability, always striving to inspire our customers with a cup of happiness every day.\nWe are committed to delivering a complete coffee experience, covering every detail from taste to packaging.",
+    "learn_more": "Learn More"
+  },
+  "coffee_trip": {
+    "title": "The Coffee Journey - From Bean to Cup",
+    "description": "At Nonda Coffee, the story begins with a small bean full of potential and ends with an exceptional moment in a perfect cup of coffee.",
+    "steps": {
+      "farming": "1. Farming & Harvesting",
+      "processing": "2. Bean Processing",
+      "roasting": "3. Roasting",
+      "grinding": "4. Grinding",
+      "brewing": "5. Brewing & Serving"
+    }
+  }
 }

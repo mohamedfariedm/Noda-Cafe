@@ -221,6 +221,7 @@ const config: Config = {
         trail: "trail var(--duration) linear infinite",
         appear: "appear 0.3s ease-out",
       },
+      
       screens: {
         xs: "475px",
         sm: "640px",
@@ -232,6 +233,20 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animated"), require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animated"), require("tailwindcss-animate")
+    , function ({ addUtilities }:{addUtilities:any}) {
+      addUtilities({
+        '.rotate-y-180': {
+          transform: 'rotateY(180deg)',
+        },
+        '.rotate-y-0': {
+          transform: 'rotateY(0deg)',
+        },
+        '.perspective': {
+          perspective: '1000px',
+        },
+      });
+    },
+  ],
 };
 export default config;
