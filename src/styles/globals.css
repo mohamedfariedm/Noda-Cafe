@@ -414,16 +414,22 @@ html {
 .swiper-pagination-bullet {
   width: 12px !important;
   height: 12px !important;
-  background: #FFFFFF !important;
-  opacity: 0.5;
-  transition: background 0.3s, opacity 0.3s;
+  opacity: 1 !important;
+  border: white 2px solid !important;
 }
 
 /* Customizing the active bullet */
 .swiper-pagination-bullet-active {
-  background: #F8FBFC !important;
-  width: 14px !important;
-  height: 14px !important;
+  background: #F8992F !important;
+  width: 12px !important;
+  height: 12px !important;
   opacity: 1;
+  border:none !important;
+
+}
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: 2rem !important;
+
 }
 

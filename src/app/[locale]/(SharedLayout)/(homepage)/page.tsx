@@ -4,14 +4,16 @@ import { Container } from "@/components/Layout";
 import { Separator } from "@/components/ui/separator";
 import {
   AboutApp,
+  Articles,
   Blogs,
   Calculate,
   Certifications,
   Faq,
   Hero,
   Numbers,
+  OurStory,
   Products,
-  Tamwilk,
+  BeCloser,
   Testimonials,
   Values,
 } from "./_components";
@@ -27,15 +29,13 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
       <Hero t={t}  />
        <div className="mt-[96px] flex flex-col gap-[96px] px-5 xl:px-0">
       <AboutApp t={t}/>
+      <Products />
       <CofeTrip t={t}/>
-      {/*
-      <Products t={t}/>
-      <Calculate />
-      <Faq/>
-      <Numbers t={t}/>
-      <Tamwilk t={t}/>
-      <Certifications t={t}/>
-       */}
+      <OurStory />
+      <Testimonials t={t} />
+      <Articles t={t}/>
+      <BeCloser t={t}/>
+
       </div>
     </section>
   );

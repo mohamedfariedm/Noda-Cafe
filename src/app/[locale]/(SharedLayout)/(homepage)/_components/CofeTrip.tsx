@@ -26,7 +26,7 @@ function CofeTrip({ t }: { t: TFunction }) {
             t("coffee_trip.steps.brewing"),
           ].map((text, index) => (
             <React.Fragment key={index}>
-              <div className="flex w-[125px] flex-col gap-[16px] items-center shrink-0 flex-nowrap relative z-[8]">
+              <div className="flex rtl:w-[125px] flex-col gap-[16px] items-center shrink-0 flex-nowrap relative z-[8]">
                 <div
                 style={{backgroundImage: `url(${`/assets/images/cofetrip/${index + 1}.svg`})`}}
                 className="w-[48px] h-[48px] shrink-0  bg-cover bg-no-repeat relative overflow-hidden z-[9]" />

@@ -1,93 +1,119 @@
-import { Arrow } from "@/components/Animations/arrowDown";
-import { TFunction } from "i18next";
-import Link from "next/link";
-import React from "react";
+"use client";
 
-function Products({ t }: { t: TFunction }) {
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { useTranslation } from "react-i18next";
+
+function Products() {
+  const { t } = useTranslation("homepage");
+
   const products = [
     {
-      id: 1,
-      title: t("products.travel.title"),
-      description: t("products.travel.description"),
-      image: "/assets/images/products/component5.svg",
+      title: t("products.items.0.title"),
+      description: t("products.items.0.description"),
+      image: "/assets/images/products/product.svg",
     },
     {
-      id: 2,
-      title: t("products.tuwaiqYouth.title"),
-      description: t("products.tuwaiqYouth.description"),
-      image: "/assets/images/products/component2.svg",
+      title: t("products.items.1.title"),
+      description: t("products.items.1.description"),
+      image: "/assets/images/products/product.svg",
     },
     {
-      id: 3,
-      title: t("products.recruitment.title"),
-      description: t("products.recruitment.description"),
-      image: "/assets/images/products/component3.svg",
+      title: t("products.items.2.title"),
+      description: t("products.items.2.description"),
+      image: "/assets/images/products/product.svg",
     },
     {
-      id: 4,
-      title: t("products.personalFinance.title"),
-      description: t("products.personalFinance.description"),
-      image: "/assets/images/products/component4.svg",
+      title: t("products.items.3.title"),
+      description: t("products.items.3.description"),
+      image: "/assets/images/products/product.svg",
     },
-    {
-      id: 5,
-      title: t("products.beauty.title"),
-      description: t("products.beauty.description"),
-      image: "/assets/images/products/component1.svg",
-    },
-    {
-      id: 6,
-      title: t("products.silati.title"),
-      description: t("products.silati.description"),
-      image: "/assets/images/products/component6.svg",
-    }
   ];
 
   return (
-    <div className="main-container w-full flex xl:w-[1152px] flex-col gap-[128px] items-start flex-nowrap relative mx-auto my-0">
-      <div className="flex gap-[24px] justify-center items-center self-stretch shrink-0 flex-nowrap relative">
-        <div
-          className="w-[176px] h-[3px] shrink-0 bg-cover bg-no-repeat rounded-[4px] relative z-[1]"
-          style={{ backgroundImage: "url(/assets/images/eassyway/line.svg)" }}
-        />
-        <span className="flex bukra-semi-bold rtl:w-[227px] h-[58px] justify-center items-start shrink-0 basis-auto text-[32px] font-semibold leading-[57.6px] text-[#5d9d9f] relative text-center whitespace-nowrap z-[2]">
-          {t("products.title")}
-        </span>
-        <div
-          className="w-[176px] h-[3px] shrink-0 bg-cover bg-no-repeat rounded-[4px] relative z-[3]"
-          style={{ backgroundImage: "url(/assets/images/eassyway/line.svg)", rotate: "180deg" }}
-        />
+    <div className="main-container flex w-full xl:w-[1440px] flex-col gap-[48px] justify-center items-center relative mx-auto">
+      {/* Section Title */}
+      <div className="flex w-full xl:w-[1030px] flex-col gap-[48px] justify-center items-start">
+        <div className="flex w-full xl:w-[882px] flex-col gap-[8px] justify-center items-start">
+          <div className="flex w-full rtl:xl:w-[198px] flex-col items-start">
+            <span className="flex w-full rtl:xl:w-[56px] rtl:xl:h-[29px] text-[16px] font-medium leading-[29px] text-[#dbdbdb]">
+              {t("products.title")}
+            </span>
+            <span className="flex w-full rtl:xl:w-[198px] rtl:h-[36px] text-[20px] font-bold leading-[36px] text-[#f8992f]">
+              {t("products.subtitle")}
+            </span>
+          </div>
+          <span className="flex w-full xl:w-[882px] rtl:xl:h-[29px] text-[16px] font-medium leading-[29px] text-[#dbdbdb]">
+            {t("products.description")}
+          </span>
+        </div>
       </div>
-      <div className="flex gap-x-[24px] gap-y-[104px] items-center justify-center xl:items-start self-stretch shrink-0 flex-wrap relative z-[4]">
-        {products.map((product) => (
-          <Link key={product.id} href={`/products/${product.id}`} passHref>
-            <div className="flex w-[368px] pt-[64px] group pr-[24px] pb-[16px] pl-[24px] flex-col gap-[16px] items-center flex-nowrap bg-[#f8fbfc] rounded-[24px] relative cursor-pointer transition-transform hover:scale-105">
-              
-              {/* Icon with hover effect */}
+
+      {/* Swiper Slider */}
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={50}
+        slidesPerView={1}
+        loop
+        navigation={{
+          nextEl: ".swiper-next",
+          prevEl: ".swiper-prev",
+        }}
+        pagination={{ clickable: true }}
+        className="w-full xl:w-[1030px] relative"
+      >
+        {products.map((product, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex w-full xl:w-[1030px] xl:h-[249px] flex-col xl:flex-row justify-between items-center xl:items-start">
+              {/* Product Info */}
+              <div className="flex w-full xl:w-[550px] flex-col gap-[39px] pt-5 items-start">
+                <div className="flex w-full xl:w-auto flex-col gap-[8px]">
+                  <span className="xl:h-[33px] text-[18px] font-bold leading-[32.76px] text-[#fff]">
+                    {product.title}
+                  </span>
+                  <span className="flex w-full xl:w-[550px] xl:h-[75px] text-[14px] font-medium leading-[25.48px] text-[#dbdbdb]">
+                    {product.description}
+                  </span>
+                </div>
+              </div>
+
+              {/* Product Image */}
               <div
-                className="flex w-[96px] h-[96px] pt-[16px] bg-[url(/assets/images/products/after.svg)] group-hover:bg-[url(/assets/images/products/before.svg)] transition-all
-                duration-300 pr-[16px] pb-[16px] pl-[16px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[24px] absolute top-[-48px] left-1/2 translate-x-[-50%]"
-              >
-                <div
-                  className="w-[64px] h-[64px] shrink-0 bg-cover bg-no-repeat relative overflow-hidden"
-                  style={{ backgroundImage: `url(${product.image})` }}
-                />
-              </div>
-
-              {/* Title and Description */}
-              <div className="flex pt-[16px] pr-0 pb-[16px] pl-0 flex-col gap-[12px] items-start self-stretch shrink-0 flex-nowrap relative">
-                <span className="h-[30px] self-stretch shrink-0 text-[20px] font-semibold leading-[30px] bg-gradient-to-bl from-[#5D9D9F] to-[#3EDADF] bg-clip-text text-transparent text-center whitespace-nowrap">
-                  {product.title}
-                </span>
-                <span className="flex w-[320px] h-[64px] justify-center items-start text-[16px] font-normal leading-[32px] text-[#5d9d9f] text-center">
-                  {product.description}
-                </span>
-              </div>
-
+                style={{ backgroundImage: `url(${product.image})` }}
+                className="w-[250px] sm:w-[327px] h-[249px] bg-contain sm:bg-cover bg-no-repeat"
+              />
             </div>
-          </Link>
+          </SwiperSlide>
         ))}
-      </div>
+
+        {/* Navigation Arrows */}
+        <div className="flex h-32 ltr:flex-row-reverse sm:h-auto justify-center sm:justify-start w-full sm:w-[112px] gap-[16px] sm:items-center shrink-0 flex-nowrap md:absolute md:bottom-5 z-[18]">
+          <div
+            className="swiper-prev flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
+          >
+            <div
+              style={{
+                backgroundImage: `url(/assets/images/products/arrow-right.svg)`,
+              }}
+              className="w-[16px] h-[16px] shrink-0 relative overflow-hidden z-[20]"
+            ></div>
+          </div>
+          <div
+            className="swiper-next flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
+          >
+            <div
+              style={{
+                backgroundImage: `url(/assets/images/products/arrow-left.svg)`,
+              }}
+              className="w-[16px] h-[16px] shrink-0 relative overflow-hidden z-[20]"
+            ></div>
+          </div>
+        </div>
+      </Swiper>
     </div>
   );
 }

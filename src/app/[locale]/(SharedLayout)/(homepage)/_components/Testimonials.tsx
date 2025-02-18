@@ -1,59 +1,65 @@
-"use client";
+import { TFunction } from "i18next";
 
-import { TestimonialCard } from "@/components/Cards";
-import { Heading } from "@/components/Main";
-import { testimonials } from "@/constants/temp";
-import "swiper/css";
-import "swiper/css/a11y";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-import { A11y, Autoplay, EffectFade, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-function Testimonials({ heading }: { heading: string }) {
+function Testimonials({ t }: { t: TFunction }) {
   return (
-    <section className="w-full py-16 md:py-24">
-      <div className="w-full lg:w-4/6 mx-auto ">
-        <Heading className=" mb-8 ">{heading}</Heading>
+    <div className="main-container flex w-full xl:w-[1440px] flex-col gap-[48px] items-center flex-nowrap relative mx-auto my-0">
+      <div className="flex w-full xl:w-[712px] flex-col gap-[16px] justify-center items-center shrink-0 flex-nowrap relative">
+        <span className="flex w-full xl:w-[98px] xl:h-[36px] justify-center items-start shrink-0 basis-auto text-[20px] font-bold leading-[36px] text-[#f8992f] relative text-start whitespace-nowrap z-[1]">
+          {t("testimonials.title")}
+        </span>
+        <span className="flex w-full xl:w-[712px] xl:h-[58px] justify-center items-start shrink-0 text-[16px] font-medium leading-[29.12px] text-[#dbdbdb] relative text-center z-[2]">
+          {t("testimonials.description")}
+        </span>
       </div>
-      <div className="w-full">
-        <Swiper
-          modules={[A11y, EffectFade, Autoplay, Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          effect="fade"
-          fadeEffect={{ crossFade: true }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          speed={1000}
-          loop={true}
-          grabCursor={true}
-          className="hero__slider max-w-lg mx-auto "
-        >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id}>
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <style jsx global>{`
-          .hero__slider {
-            --swiper-pagination-color: var(--fg-brand-primary_alt);
-            --swiper-pagination-bullet-size: 10px;
-            --swiper-pagination-bullet-inactive-color: var(--bg-quaternary);
-            --swiper-pagination-bullet-inactive-opacity: 1;
-            --swiper-pagination-bullet-horizontal-gap: 16px;
-            --swiper-pagination-bottom: 0px;
-          }
-        `}</style>
+      <div className="flex w-full xl:w-[1114px] gap-[32px] items-center justify-center shrink-0 flex-wrap xl:flex-nowrap relative z-[3]">
+        {[
+          {
+            text: t("testimonials.reviews.0.text"),
+            name: t("testimonials.reviews.0.name"),
+            url: "/assets/images/testemonials/1.svg",
+          },
+          {
+            text: t("testimonials.reviews.1.text"),
+            name: t("testimonials.reviews.1.name"),
+            url: "/assets/images/testemonials/2.svg",
+          },
+          {
+            text: t("testimonials.reviews.2.text"),
+            name: t("testimonials.reviews.2.name"),
+            url: "/assets/images/testemonials/3.svg",
+          },
+        ].map((review, index) => (
+          <div
+            key={index}
+            className="flex w-full md:w-[350px] flex-col gap-[16px] items-center shrink-0 flex-nowrap relative z-[4]"
+          >
+            <div className="h-[208px] self-stretch shrink-0 relative z-[5] group">
+              <div className="w-full h-full bg-[url(/assets/images/testemonials/union.svg)] group-hover:bg-[url(/assets/images/testemonials/unionHover.svg)] transition-all duration-500 ease-in-out bg-contain xs:bg-cover bg-no-repeat absolute top-0 left-0 z-[6]" />
+              <div className="flex w-full scale-[.8] xs:scale-100 xs:h-[96.15%] flex-col gap-[24px] justify-center items-center flex-nowrap rounded-[16px] absolute top-0 left-0 z-[7]">
+                <div
+                  style={{
+                    backgroundImage: `url(/assets/images/testemonials/Frame.svg)`,
+                  }}
+                  className="w-[24.577px] h-[19.935px] shrink-0 bg-cover bg-no-repeat relative overflow-hidden z-[8]"
+                />
+                <span className="flex w-full rtl:sm:w-[280px] rtl:h-[75px] justify-center items-start shrink-0 text-[14px] font-medium leading-[25.48px] text-[#dbdbdb] relative text-center z-[9]">
+                  {review.text}
+                </span>
+              </div>
+            </div>
+            <div className="flex w-[84px] flex-col gap-[8px] items-center shrink-0 flex-nowrap relative z-10">
+              <div
+                style={{ backgroundImage: `url(${review.url})` }}
+                className="w-[56px] h-[56px] shrink-0 bg-cover bg-no-repeat rounded-[50%] relative z-[11]"
+              />
+              <span className="flex w-[101px] h-[25px] justify-center items-start shrink-0 basis-auto text-[14px] font-medium leading-[25px] text-[#fff] relative text-center whitespace-nowrap z-[12]">
+                {review.name}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
 
