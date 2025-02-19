@@ -34,7 +34,7 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
+    --background: #281708;
 
     --foreground: 0 0% 3.9%;
 
@@ -74,7 +74,7 @@
 
     --input: 0 0% 89.8%;
     --disabled: #667085;
-    --placeholder: #667085;
+    --placeholder: #DCDCDC;
 
     --ring: #544cfc;
     --focus-ring: #544cfc;

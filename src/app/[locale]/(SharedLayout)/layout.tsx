@@ -18,7 +18,7 @@ export default async function Layout({
     <div className="overflow-x-hidden">
       <Header locale={locale} />
       {children}
-      {/* <Footer locale={locale} /> */}
+      <Footer locale={locale} />
 
     </div>
     </>

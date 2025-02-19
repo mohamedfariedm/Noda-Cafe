@@ -1,18 +1,4 @@
 import initTranslations from "@/app/i18n";
-import { BlogCard } from "@/components/Cards";
-import { Container } from "@/components/Layout";
-import {
-  BlogList,
-  Heading,
-  Pagination,
-  PreHeading,
-  StartFreeTrial,
-  SubHeading,
-} from "@/components/Main";
-import { Separator } from "@/components/ui/separator";
-import BlogFilters from "./_components/BlogFilters";
-import { getAllBlogs } from "@/app/api/apiClient/apiClient";
-import { Products } from "../(homepage)/_components";
 import { BreadCrumbComponent } from "@/components/Animations/breadCrumb";
 
 type props = {
@@ -24,36 +10,103 @@ type props = {
   };
 };
 
-async function page({
-  params: { locale },
-  searchParams: { page, tag, sort },
-}: props) {
-  // const currentPage = Number(page || 1);
-  // const limit = Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT || 9);
-  // const lang = locale; // Assuming the locale is the desired language
+async function page({ params: { locale } }: props) {
+  const { t } = await initTranslations(locale, ["products"]);
 
-  // const { blogs, meta } = await getAllBlogs({
-  //   page:currentPage,
-  //   type:tag,
-  //   limit,
-  //   lang
-  // }
-  // );
-  // const totalPages = meta.lastPage;
-  // console.log(blogs);
-  
+  return (
+    <>
+      <BreadCrumbComponent t={t} />
 
-  const { t } = await initTranslations(locale, ["homepage"]);
+      {/* Section 1 */}
+      <div className="main-container w-full max-w-[1440px] relative mx-auto px-4">
+        <div className="flex flex-wrap relative z-10 lg:flex-nowrap w-full items-center justify-center gap-8 lg:gap-[150px] py-[96px]">
+          {/* Text Content */}
+          <div className="flex flex-col gap-6 text-start max-w-[550px]">
+            <span className="text-[20px] font-bold text-white leading-[36px]">
+              {t("colombian_coffee_title")}
+            </span>
+            <div className="flex flex-col gap-6">
+              <span className="text-[16px] font-medium leading-[29.12px] text-[#dbdbdb]">
+                {t("colombian_coffee_description")}
+              </span>
+              <span className="text-[16px] font-medium leading-[29.12px] text-[#dbdbdb]">
+                {t("colombian_coffee_description")}
+              </span>
+            </div>
+          </div>
 
-  return (<>
-  
-  <BreadCrumbComponent t={
-    t
-  }/>
-  
-  <Products t={t}/>
-  
-  </>
+          {/* Image */}
+          <div
+            style={{ backgroundImage: `url(/assets/images/products/1.svg)` }}
+            className="w-full max-w-[420px] h-[320px] bg-contain sm:bg-cover  bg-no-repeat"
+          />
+        </div>
+
+        {/* Background Image */}
+        <div
+          style={{ backgroundImage: `url(/assets/images/products/cupCoffe.svg)` }}
+          className="w-full h-full xl:h-[432px] bg-cover bg-no-repeat absolute ltr:rotate-y-180 top-[27.64%] end-0 z-0"
+        />
+      </div>
+
+      {/* Section 2 */}
+      <div className="main-container w-full max-w-[1440px] relative mx-auto px-4">
+        <div className="flex relative z-10 flex-wrap-reverse lg:flex-nowrap w-full items-center justify-center gap-8 lg:gap-[150px] py-[96px]">
+          {/* Image */}
+          <div
+            style={{ backgroundImage: `url(/assets/images/products/1.svg)` }}
+            className="w-full max-w-[420px] h-[320px] bg-contain sm:bg-cover bg-no-repeat"
+          />
+
+          {/* Text Content */}
+          <div className="flex flex-col gap-6 text-start max-w-[550px]">
+            <span className="text-[20px] font-bold text-white leading-[36px]">
+              {t("colombian_coffee_title")}
+            </span>
+            <div className="flex flex-col gap-6">
+              <span className="text-[16px] font-medium leading-[29.12px] text-[#dbdbdb]">
+                {t("colombian_coffee_description")}
+              </span>
+              <span className="text-[16px] font-medium leading-[29.12px] text-[#dbdbdb]">
+                {t("colombian_coffee_description")}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Background Image */}
+        <div
+          style={{ backgroundImage: `url(/assets/images/products/Vector.svg)` }}
+          className="w-full h-[704px] bg-cover bg-no-repeat absolute top-[-30px] ltr:rotate-y-180 end-0 z-[1]"
+        />
+      </div>
+
+      {/* Section 3 */}
+      <div className="main-container w-full max-w-[1440px] relative z-10 mx-auto px-4">
+        <div className="flex flex-wrap lg:flex-nowrap w-full items-center justify-center gap-8 lg:gap-[150px] py-[96px]">
+          {/* Text Content */}
+          <div className="flex flex-col gap-6 text-start max-w-[550px]">
+            <span className="text-[20px] font-bold text-white leading-[36px]">
+              {t("colombian_coffee_title")}
+            </span>
+            <div className="flex flex-col gap-6">
+              <span className="text-[16px] font-medium leading-[29.12px] text-[#dbdbdb]">
+                {t("colombian_coffee_description")}
+              </span>
+              <span className="text-[16px] font-medium leading-[29.12px] text-[#dbdbdb]">
+                {t("colombian_coffee_description")}
+              </span>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div
+            style={{ backgroundImage: `url(/assets/images/products/1.svg)` }}
+            className="w-full max-w-[420px] h-[320px] bg-contain sm:bg-cover bg-no-repeat"
+          />
+        </div>
+      </div>
+    </>
   );
 }
 
