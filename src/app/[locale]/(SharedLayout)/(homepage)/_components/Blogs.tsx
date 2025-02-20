@@ -4,37 +4,42 @@ import { Button } from "@/components/ui/button";
 import { TFunction } from "i18next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-const BogsSection = dynamic(() => import("./BogsSection"), {
-  loading: () => <BlogListSkeleton />,
-});
-function Blogs({ locale,t }: { locale:any,t: TFunction }) {
-  return (
-    <section className="w-full py-16 md:py-24">
-      <div className="w-full flex justify-between items-start mb-12 md:mb-16 gap-5">
-        <div className="w-full lg:w-4/6  ">
-          <PreHeading className="text-start">
-            {t("Blogs.PreHeading")}
-          </PreHeading>
-          <Heading className="mt-3 mb-5 text-start">
-            {t("Blogs.Heading")}
-          </Heading>
-          <SubHeading className="text-start">
-            {t("Blogs.SubHeading")}
-          </SubHeading>
-        </div>
-        <Button asChild className="h-12 hidden lg:-flex">
-          <Link href="/blog">{t("Blogs.cta")}</Link>
-        </Button>
-      </div>
 
-      <BogsSection locale={locale} />
-      <Button
-        asChild
-        className="h-12 flex  lg:hidden w-full max-w-[450px] mx-auto mt-12"
-      >
-        <Link href="/blog">{t("Blogs.cta")}</Link>
-      </Button>
-    </section>
+interface ArticleData {
+  title: string;
+  description: string;
+  url: string;
+}
+function Blogs({ t,data }: {t: TFunction,data:ArticleData[] }) {
+  return (
+<div className="flex w-full xl:w-[1152px] gap-[24px] items-center justify-center shrink-0 flex-wrap  relative z-[4]">
+        {
+        data?.map((article, index) => (
+          <Link
+            href={`/blogs/${index}`}
+            key={index}
+            className="flex w-full xs:w-[368px] xs:h-[465px] flex-col overflow-hidden items-start shrink-0 flex-nowrap relative z-[5] group"
+          >
+            <div
+              style={{ backgroundImage: `url(${article.url})` }}
+              className="w-full xs:w-[368px] h-[250px] shrink-0 group-hover:scale-110 transition-all duration-300  bg-cover bg-no-repeat relative z-[6]"
+            />
+            <div className="flex xs:h-[215px] pt-[16px] pr-[16px] pb-[24px] pl-[16px] flex-col gap-[24px] items-start self-stretch shrink-0 flex-nowrap bg-[#371f0b] group-hover:bg-[url(/assets/images/articles/hover.svg)] transition-all duration-300 bg-cover bg-no-repeat rounded-[16px] rounded-tl-none rounded-tr-none rounded-br-[16px] rounded-bl-[16px] relative z-[7]">
+              <div className="flex w-full xs:w-[336px] flex-col gap-[12px] items-start shrink-0 flex-nowrap relative z-[8]">
+                <span className="flex w-full line-clamp-1 xs:w-[336px]  justify-start items-start shrink-0 basis-auto text-[16px] font-semibold leading-[29px] text-[#fff] relative text-start xs:whitespace-nowrap z-[9]">
+                  {article.title}
+                </span>
+                <span className="flex w-full line-clamp-3 xs:w-[336px] xs:h-[81px] justify-start items-start shrink-0 text-[14px] font-normal leading-[27px] text-[#dbdbdb] relative text-start z-10">
+                  {article.description}
+                </span>
+              </div>
+              <span className="h-[29px] self-stretch shrink-0 basis-auto text-[16px] font-normal leading-[29px] text-[#dbdbdb] relative text-start whitespace-nowrap z-[11]">
+                {t("articles.read_more")}
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
   );
 }
 

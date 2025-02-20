@@ -1,5 +1,8 @@
 {
-  "home": "Home",
+    "home": "Home",
+    "name": "Contact Us",
+    "title": "Contact Us",
+    "description": "We are here to serve you! If you have any questions or feedback, don't hesitate to reach out to us. We are always happy to hear from you.", 
   "breadCrumb": "Contact Us",
   "form": {
     "firstName": "First Name",
@@ -24,5 +27,12 @@
     "phoneRequired": "Phone number is required",
     "phoneInvalid": "Please enter a valid Saudi phone number",
     "message": "Message is required"
+  },
+  "contact": {
+    "phone": "+2 000-111-2222",
+    "working_hours": "Working hours: Sunday to Thursday, 9 AM to 5 PM.",
+    "email": "info@nondacoffee.com",
+    "response_time": "Response within 24 hours.",
+    "support_message": "Feel free to contact us for more information or support."
   }
 }

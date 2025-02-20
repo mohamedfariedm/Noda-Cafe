@@ -11,7 +11,7 @@ async function page({ params: { locale } }: props) {
   return (
     <>
       <div className="p-2 xl:p-0">
-        <BreadCrumbComponent t={t} />
+      <BreadCrumbComponent t={t} name={t("name")} title={t("title")} description={t("description")} />
 
         <div className="flex flex-col gap-y-10 justify-center items-center flex-nowrap relative mx-auto my-10">
           {/* Section 1 */}
