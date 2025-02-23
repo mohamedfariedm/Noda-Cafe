@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function MenuItemsDesktop({
   className,
@@ -8,12 +9,14 @@ export default function MenuItemsDesktop({
   className?: string;
   locale?: string;
 }) {
-  // Define menu items with dynamic translations
+  const { t } = useTranslation("expo");
+
+  // Define menu items with translated labels
   const menuItems = [
-    { label: "نبذة عن المعرض", href: "#about" },
-    { label: "المنتجات", href: "#products" },
-    { label: "صور الفعاليات", href: "#events" },
-    { label: "الشركاء", href: "#bartners" },
+    { label: t("menu.about"), href: "#about" },
+    { label: t("menu.products"), href: "#products" },
+    { label: t("menu.events"), href: "#events" },
+    { label: t("menu.partners"), href: "#partners" },
   ];
 
   // State to hold the currently active section
@@ -62,7 +65,7 @@ export default function MenuItemsDesktop({
   };
 
   return (
-    <div className={`flex flex-col md:flex-row w-[429px]  gap-[32px] items-center shrink-0 flex-nowrap relative z-[6] ${className}`}>
+    <div className={`flex flex-col md:flex-row w-[429px] ltr:gap-[10px] rtl:gap-[32px] items-center shrink-0 flex-nowrap relative z-[6] ${className}`}>
       {menuItems.map((item, index) => (
         <a
           key={index}

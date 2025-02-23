@@ -10,17 +10,17 @@ import {
 
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
 
-  const { t } = await initTranslations(locale, ["homepage"]);
+  const { t } = await initTranslations(locale, ["expo"]);
 
   return (
     <section className="bg-[#281708] ">
       <Hero t={t}  />
        <div className=" flex flex-col gap-[96px] px-5 xl:px-0">
       <AboutApp t={t}/>
-      <OurStory />
+      <OurStory t={t}/>
       <Products />
       <Partners t={t} />
-      <Contact />
+      <Contact  t={t}/>
       </div>
     </section>
   );
