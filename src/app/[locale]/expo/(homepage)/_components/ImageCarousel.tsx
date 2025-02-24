@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
 
 function ImageCarousel() {
-  const { t } = useTranslation("homepage");
+  const { t } = useTranslation("expo");
 
   const products = [
     {
@@ -36,12 +36,12 @@ function ImageCarousel() {
   <div className="flex w-full xl:w-[740px] flex-col gap-[16px] justify-center items-center shrink-0 flex-nowrap relative">
     <div className="flex flex-col items-center self-stretch shrink-0 flex-nowrap relative z-[1]">
       <span className="flex xl:w-[427px] xl:h-[36px] justify-end items-start shrink-0 basis-auto  text-[20px] font-bold leading-[36px] text-[#f8992f] relative text-center xl:whitespace-nowrap z-[2]">
-        لحظات من معرض القهوة السعودية الأوغندية
-      </span>
+      {t("carousel.heading")}
+            </span>
     </div>
     <span className="flex xl:w-[740px] xl:h-[29px] justify-center items-start shrink-0 basis-auto  text-[16px] font-medium leading-[29px] text-[#dbdbdb] relative text-center xl:whitespace-nowrap z-[3]">
-      استمتع بلحظات من معرض القهوة السعودية الأوغندية، حيث التقى الشغف
-      بالابتكار في عالم القهوة.
+    {t("carousel.description")}
+
     </span>
   </div>
   <div className="main-container flex w-full xl:w-[1440px] flex-col gap-[48px] justify-center items-center relative mx-auto">
@@ -78,9 +78,9 @@ function ImageCarousel() {
   ))}
 
   {/* Navigation Arrows */}
-  <div className="flex h-32 ltr:flex-row-reverse sm:h-auto justify-center sm:justify-start w-full sm:w-[112px] gap-[16px] sm:items-center shrink-0 flex-nowrap mt-[24px] z-[18]">
+  <div className="flex  h-32 ltr:flex-row-reverse sm:h-auto justify-center sm:justify-start w-full rtl:sm:w-[112px] gap-[16px] sm:items-center shrink-0 flex-nowrap mt-[24px] z-[18]">
     <div
-      className="swiper-prev flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
+      className="swiper-prev hover:bg-white transition-all duration-500 cursor-pointer flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
     >
       <div
         style={{
@@ -90,7 +90,7 @@ function ImageCarousel() {
       ></div>
     </div>
     <div
-      className="swiper-next flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
+      className="swiper-next hover:bg-white transition-all duration-500 cursor-pointer flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
     >
       <div
         style={{

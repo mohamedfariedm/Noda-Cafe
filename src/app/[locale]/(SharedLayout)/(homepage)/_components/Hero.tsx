@@ -15,7 +15,7 @@ const Hero = ({ t }: { t: TFunction }) => {
 
       </span>
     </div>
-    <button className="flex w-[170px] pt-[8px] pr-[24px] pb-[8px] pl-[24px] flex-col gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[41px] border-solid border border-[#f8992f] relative z-[5] pointer">
+    <button className="flex hover:bg-white transition-all duration-500 cursor-pointer w-[170px] pt-[8px] pr-[24px] pb-[8px] pl-[24px] flex-col gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[41px] border-solid border border-[#f8992f] relative z-[5] pointer">
       <span className="h-[29px] shrink-0 basis-auto  text-[16px] font-medium leading-[29px] text-[#f8992f] relative  whitespace-nowrap z-[6]">
       {t("contact_us")}
       </span>

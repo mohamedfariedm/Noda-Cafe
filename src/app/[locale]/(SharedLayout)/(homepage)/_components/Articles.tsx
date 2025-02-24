@@ -39,7 +39,7 @@ function Articles({ t }: { t: TFunction }) {
         </span>
       </div>
 <Blogs t={t} data={data} />
-      <button className="flex w-[170px] pt-[8px] pr-[24px] pb-[8px] pl-[24px] flex-col gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[41px] border-solid border border-[#f8992f] relative z-[26] pointer">
+      <button className="flex hover:bg-white transition-all duration-500 cursor-pointer w-[170px] pt-[8px] pr-[24px] pb-[8px] pl-[24px] flex-col gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[41px] border-solid border border-[#f8992f] relative z-[26] pointer">
         <span className="h-[29px] shrink-0 basis-auto text-[16px] font-medium leading-[29px] text-[#f8992f] relative text-left whitespace-nowrap z-[27]">
           {t("articles.all_articles")}
         </span>

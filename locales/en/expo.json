@@ -40,6 +40,25 @@
     "products": "Products",
     "events": "Event Photos",
     "partners": "Partners"
+  },
+  "footer": {
+    "inquiryQuestion": "Have a question?",
+    "callLabel": "Call us at",
+    "emailLabel": "Email us at",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get the latest updates about our events and products.",
+    "enterEmailLabel": "Enter your email",
+    "enterEmailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe Now",
+    "about": "About the Expo",
+    "products": "Products",
+    "events": "Event Photos",
+    "partners": "Partners",
+    "copyright": "2025 © All rights reserved to Nonda Coffee"
+  },
+  "carousel": {
+    "heading": "Moments from the Saudi-Ugandan Coffee Expo",
+    "description": "Enjoy moments from the Saudi-Ugandan Coffee Expo, where passion meets innovation in the world of coffee."
   }
   }
   

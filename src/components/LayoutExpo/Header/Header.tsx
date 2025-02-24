@@ -18,7 +18,7 @@ async function Header({ locale }: { locale: string }) {
 
           <div className="flex gap-6 items-center">
             <LanguageChanger />
-            <button className="flex rtl:w-[170px] pt-2 pr-6 pb-2 pl-6 flex-col gap-2 justify-center items-center rounded-[41px] border border-solid border-[#f8992f] relative z-[2] pointer">
+            <button className="flex hover:bg-white transition-all duration-500 cursor-pointer rtl:w-[170px] pt-2 pr-6 pb-2 pl-6 flex-col gap-2 justify-center items-center rounded-[41px] border border-solid border-[#f8992f] relative z-[2] pointer">
               <span className="text-[16px] font-medium leading-[29px] text-[#f8992f]">
                 {t("header.register")}
               </span>

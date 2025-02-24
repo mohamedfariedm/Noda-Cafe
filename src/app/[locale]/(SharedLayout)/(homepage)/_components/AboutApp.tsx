@@ -18,7 +18,7 @@ function AboutApp({ t }: { t: TFunction }) {
             dangerouslySetInnerHTML={{ __html: t("about.description").replace(/\n/g, "<br />") }}
           />
 
-          <button className="flex w-[170px] pt-[8px] pr-[24px] pb-[8px] pl-[24px] flex-col gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[41px] border-solid border border-[#f8992f] relative z-[6] pointer">
+          <button className="flex hover:bg-white transition-all duration-500 cursor-pointer w-[170px] pt-[8px] pr-[24px] pb-[8px] pl-[24px] flex-col gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[41px] border-solid border border-[#f8992f] relative z-[6] pointer">
             <span className="h-[29px] shrink-0 basis-auto text-[16px] font-medium leading-[29px] text-[#f8992f] relative text-end whitespace-nowrap z-[7]">
               {t("about.learn_more")}
             </span>

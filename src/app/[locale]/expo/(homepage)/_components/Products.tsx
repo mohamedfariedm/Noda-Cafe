@@ -93,7 +93,7 @@ function Products() {
         {/* Navigation Arrows */}
         <div className="flex h-32 ltr:flex-row-reverse sm:h-auto justify-center sm:justify-start w-full sm:w-[112px] gap-[16px] sm:items-center shrink-0 flex-nowrap md:absolute md:bottom-5 z-[18]">
           <div
-            className="swiper-prev flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
+            className="swiper-prev hover:bg-white transition-all duration-500 cursor-pointer flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
           >
             <div
               style={{
@@ -103,7 +103,7 @@ function Products() {
             ></div>
           </div>
           <div
-            className="swiper-next flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
+            className="swiper-next hover:bg-white transition-all duration-500 cursor-pointer flex w-[48px] h-[48px] pt-[20px] pr-[20px] pb-[20px] pl-[20px] gap-[8px] justify-center items-center shrink-0 flex-nowrap rounded-[32px] border-solid border border-[#dbdbdb] relative z-[19]"
           >
             <div
               style={{
