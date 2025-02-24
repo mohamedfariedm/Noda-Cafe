@@ -31,7 +31,7 @@ import { useTranslation } from "react-i18next";
       {menuOpen && (
         <div className="lg:hidden absolute top-20 left-0 w-full bg-black bg-opacity-90 p-4">
           <nav className="flex flex-col items-center gap-4">
-            <MenuItemsDesktop t={t} />
+            <MenuItemsDesktop t={t} locale={locale} />
           </nav>
           <div className="flex justify-center mt-4 gap-4">
             {socialIcons.map((icon:any, index:number) => (
