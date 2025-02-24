@@ -8,5 +8,5 @@ export default async function ClientComponentsAuthSessionProvider({
   children,
 }: props) {
   // const session = await auth();
-  return children
+  return {children}
 }
