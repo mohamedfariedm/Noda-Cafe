@@ -4,7 +4,7 @@ import React from "react";
 
 function CofeTrip({ t }: { t: TFunction }) {
   return (
-    <div className="main-container flex w-full xl:w-[1440px] pt-[96px] pr-0 pb-[96px] pl-0 flex-col gap-[8px] items-start flex-nowrap relative mx-auto my-0">
+    <div className="main-container flex w-full xl:w-[1440px]  flex-col gap-[8px] items-start flex-nowrap relative mx-auto my-0">
     <div className="w-full xl:w-[1442px] sm:h-[469.067px] xl:flex rtl:xl:justify-end shrink-0 bg-[url(/assets/images/cofetrip/Vector.svg)] bg-contain md:bg-cover bg-no-repeat relative z-[1]">
       <div className="flex w-full xl:w-[772px] flex-col gap-[48px] items-start flex-nowrap relative z-[2] xl:mt-[169px] ltr:xl:ms-[96px] rtl:xl:ml-[150px]">
         <div className="flex w-full xl:w-[554px] flex-col gap-[16px] justify-center items-end shrink-0 flex-nowrap relative z-[3]">

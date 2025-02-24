@@ -2,7 +2,7 @@ import { TFunction } from "i18next";
 
 function OurStory({ t }: { t: TFunction }) {
   return (
-    <div className="main-container flex flex-col gap-6 xl:gap-0 md:flex-row xl:w-[1050px] justify-between items-center flex-nowrap relative mx-auto my-0">
+    <div  className="main-container flex flex-col gap-6 xl:gap-0 md:flex-row xl:w-[1050px] justify-between items-center flex-nowrap relative mx-auto my-0">
       {/* Video Container */}
       <div
         style={{ backgroundImage: `url(/assets/images/expo/layer.svg)` }}

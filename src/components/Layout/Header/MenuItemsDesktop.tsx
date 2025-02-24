@@ -5,7 +5,7 @@ import { TFunction } from "i18next";
 export default function MenuItemsDesktop({
   t,
   className,
-  locale = "ar", // Default to Arabic if no locale is provided
+  locale , // Default to Arabic if no locale is provided
 }: {
   t: TFunction;
   className?: string;
@@ -30,8 +30,7 @@ export default function MenuItemsDesktop({
           key={index}
           href={`/${locale}${item.href}`} // Ensure locale is prepended to the URL
           className={cn(
-            "h-[29px] shrink-0 basis-auto text-[16px] font-medium leading-[29px] relative text-end whitespace-nowrap",
-            index === 0 ? "text-[#f8992f]" : "text-[#fff]" // Highlight the first item
+            "h-[29px] shrink-0 basis-auto text-[16px] font-medium leading-[29px] relative text-end whitespace-nowrap"
           )}
         >
           {item.label}

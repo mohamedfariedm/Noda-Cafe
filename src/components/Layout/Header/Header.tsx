@@ -44,7 +44,7 @@ async function Header({ locale }: { locale: string }) {
  
   </div>
 
-<MenuItemsDesktop t={t} />
+<MenuItemsDesktop t={t} locale={locale} />
 </div>
 
     </div>

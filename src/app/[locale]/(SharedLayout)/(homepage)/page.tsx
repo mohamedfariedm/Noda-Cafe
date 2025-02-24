@@ -26,7 +26,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
   return (
     <section className="bg-[#281708] ">
       <Hero t={t}  />
-       <div className="mt-[96px] flex flex-col gap-[96px] px-5 xl:px-0">
+       <div className="my-[96px] flex flex-col gap-[96px] px-5 xl:px-0">
       <AboutApp t={t}/>
       <Products />
       <CofeTrip t={t}/>

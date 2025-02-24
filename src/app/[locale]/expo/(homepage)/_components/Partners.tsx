@@ -2,7 +2,7 @@ import { TFunction } from "i18next";
 
 function Partners({ t }: { t: TFunction }) {
   return (
-    <div className="main-container w-full max-w-[1440px] pt-[96px] pb-[96px] flex flex-col gap-[48px] items-center mx-auto">
+    <div id="partners" className="main-container w-full max-w-[1440px] flex flex-col gap-[48px] items-center mx-auto">
       {/* Header Section */}
       <div className="flex w-full md:w-[693px] flex-col gap-[16px] justify-center items-center">
         <div className="flex flex-col items-center w-full md:w-auto relative z-[1]">

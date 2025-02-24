@@ -60,7 +60,8 @@ export default function MenuItemsDesktop({
     const id = href.replace("#", "");
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionTop - 100, behavior: "smooth" });
     }
   };
 

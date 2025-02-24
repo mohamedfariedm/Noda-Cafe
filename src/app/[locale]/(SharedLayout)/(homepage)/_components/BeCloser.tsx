@@ -4,7 +4,7 @@ import React from "react";
 
 function BeCloser({ t }: { t: TFunction }) {
   return (
-    <div className="main-container flex w-full xl:w-[1440px] pt-[96px] pr-0 pb-[96px] pl-0 flex-col gap-[8px] justify-center items-center flex-nowrap relative mx-auto my-0">
+    <div className="main-container flex w-full xl:w-[1440px]  flex-col gap-[8px] justify-center items-center flex-nowrap relative mx-auto my-0">
       <div className="flex flex-col xl:flex-row w-full xl:w-[1200px] bg-[url(/assets/images/beCloser/frame.svg)] bg-cover bg-right pt-[40px] pr-[40px] pb-[40px] pl-[40px] justify-between items-center shrink-0 flex-nowrap xl:rounded-[32px] relative">
         <div className="w-full xl:w-[456.13px] h-[259.747px]  shrink-0 relative z-[9]">
           <div

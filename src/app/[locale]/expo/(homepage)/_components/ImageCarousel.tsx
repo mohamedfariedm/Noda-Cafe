@@ -32,7 +32,7 @@ function ImageCarousel() {
   return (
 
     <>
-    <div className="main-container imageCarousel flex w-full xl:w-[1440px] pt-[96px] pr-0 pb-[96px] pl-0 flex-col gap-[48px] items-center flex-nowrap relative mx-auto my-0">
+    <div id="events"  className="main-container imageCarousel flex w-full xl:w-[1440px]  flex-col gap-[48px] items-center flex-nowrap relative mx-auto my-0">
   <div className="flex w-full xl:w-[740px] flex-col gap-[16px] justify-center items-center shrink-0 flex-nowrap relative">
     <div className="flex flex-col items-center self-stretch shrink-0 flex-nowrap relative z-[1]">
       <span className="flex xl:w-[427px] xl:h-[36px] justify-end items-start shrink-0 basis-auto  text-[20px] font-bold leading-[36px] text-[#f8992f] relative text-center xl:whitespace-nowrap z-[2]">

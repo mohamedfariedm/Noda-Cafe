@@ -9,43 +9,35 @@ interface NavLinkProps {
   href: string;
   children: ReactNode;
   className?: string;
-  style?:any;
+  style?: any;
 }
 
-export default function NavLink({ href, children, className,style }: NavLinkProps) {
+export default function NavLink({ href, children, className, style }: NavLinkProps) {
   const pathname = usePathname();
-  
-  const isActive = pathname === href;
-console.log(href);
+  // For Arabic, remove the "/ar" prefix for comparison since Arabic is the default.
+  const normalizedHref = href.startsWith("/ar") ? href.replace("/ar", "") : href;
+  const isActive = normalizedHref === pathname;
+
+  console.log("HREF :", href);
+  console.log("Normalized HREF :", normalizedHref);
+  console.log("PathName", pathname);
 
   return (
-    <>
     <Link
       href={href}
       className={cn(
         "relative",
-        isActive && (href === "/" || href === "/en") 
-          ? "font-semibold text-white bukra-semi-bold" 
-          : isActive 
-            ? "font-semibold text-[#5d9d9f] bukra-semi-bold"
-            : "text-[#5d9d9f]",
+        isActive && (href === "/" || href === "/en")
+          ? "font-semibold text-[#f8992f] bukra-semi-bold"
+          : isActive
+          ? "text-[#f8992f]"
+          : "text-white",
         className
       )}
       style={style}
     >
       {children}
-    <div className={cn(
-  isActive 
-    ? (href === "/" || href === "/en") 
-      ? "w-full h-[2px] shrink-0 bg-white absolute bottom-[-10px] left-0 z-[6]" 
-      : "w-full h-[2px] shrink-0 bg-[#5d9d9f] absolute bottom-[-10px] left-0 z-[6]"
-    : "hidden"
-)}
- />
+
     </Link>
-    
-
-    </>
-
   );
 }

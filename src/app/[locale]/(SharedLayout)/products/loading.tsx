@@ -2,8 +2,9 @@ import { Container } from "@/components/Layout";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
+  
   return (
-    <section>
+    <section style={{zIndex:"10000000"}}>
       <Container className="min-h-screen">
         <div className="w-full lg:w-4/6 py-16 md:py-24">
           <Skeleton className="h-4 w-24 mb-3" />

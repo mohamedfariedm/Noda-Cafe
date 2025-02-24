@@ -2,7 +2,7 @@ import { TFunction } from "i18next";
 
 const Hero = ({ t }: { t: TFunction }) => {
   return (
-    <div className="h-[140vh] xs:h-[100vh] md:h-[650px]">
+    <div  className="h-[140vh] xs:h-[100vh] md:h-[650px]">
       <div className="main-container w-full xl:w-[1440px] flex justify-center items-center mt-[170px] mx-auto my-0">
         <div className="flex w-full xl:w-[689px] flex-col gap-[32px] items-center flex-nowrap relative z-[1]">
           <div className="flex flex-col gap-[8px] items-center self-stretch shrink-0 flex-nowrap relative z-[2]">
@@ -34,7 +34,7 @@ const Hero = ({ t }: { t: TFunction }) => {
         </video>
 
         {/* Gradient Overlay */}
-        <div className="absolute top-0 left-0 w-full h-[100vh] xl:h-[810px] bg-gradient-to-t from-[#281708] via-[#0000] to-[#0000]" />
+        <div className="absolute top-0 left-0 w-full h-[140vh] xl:h-[810px] bg-gradient-to-t from-[#281708] via-[#0000] to-[#0000]" />
       </div>
     </div>
   );

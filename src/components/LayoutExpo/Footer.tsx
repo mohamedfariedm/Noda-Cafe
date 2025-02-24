@@ -4,6 +4,16 @@ import Link from "next/link";
 
 async function Footer({ locale }: { locale: string }) {
   const { t } = await initTranslations(locale, ["expo"]);
+  
+  const handleClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const section = document.getElementById(id);
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionTop - 100, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="w-full bg-[#37200b] mx-auto">
@@ -76,21 +86,21 @@ async function Footer({ locale }: { locale: string }) {
         {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row w-full gap-6 sm:gap-0 sm:max-w-[1152px] pt-4 md:pt-[40px] justify-between items-center border-t border-t-[#281607] relative z-[28]">
           <div className="flex flex-col sm:flex-row w-full rtl:sm:w-[378px] gap-6 sm:gap-2 md:gap-[32px] items-center relative z-[30]">
-            <span className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[35]">
+            <a href="#about" className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[35]">
               {t("footer.about")}
-            </span>
-            <span className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[34]">
+            </a>
+            <a href="#products" className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[34]">
               {t("footer.products")}
-            </span>
+            </a>
             <div className="flex w-full sm:w-[83px]  sm:gap-[8px] justify-center items-center  relative z-[33]">
-              <span className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[34]">
+              <a href="#events" className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[34]">
                 {t("footer.events")}
-              </span>
+              </a>
             </div>
             <div className="flex w-full sm:w-[50px] gap-2 sm:gap-[8px] justify-center items-center  relative z-[31]">
-              <span className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[32]">
+              <a href="#partners" className="block text-[14px] font-normal leading-[21px] text-[#dbdbdb]  whitespace-nowrap z-[32]">
                 {t("footer.partners")}
-              </span>
+              </a>
             </div>
           </div>
           <span className="block w-full sm:w-[313px] xl:h-[21px] text-[14px] font-normal leading-[21px] text-[#dbdbdb] text-center sm:whitespace-nowrap z-[29]">

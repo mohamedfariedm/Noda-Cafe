@@ -35,7 +35,7 @@ function Products() {
   ];
 
   return (
-    <div className="main-container flex w-full xl:w-[1440px] flex-col gap-[48px] justify-center items-center relative mx-auto">
+    <div id="products"  className="main-container flex w-full xl:w-[1440px] flex-col gap-[48px] justify-center items-center relative mx-auto">
       {/* Section Title */}
       <div className="flex w-full xl:w-[1030px] flex-col gap-[48px] justify-center items-start">
         <div className="flex w-full xl:w-[882px] flex-col gap-[8px] justify-center items-start">

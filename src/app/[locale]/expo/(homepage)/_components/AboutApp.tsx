@@ -2,7 +2,7 @@ import { TFunction } from "i18next";
 
 function AboutApp({ t }: { t: TFunction }) {
   return (
-    <div className="main-container w-full xl:w-[1050px] rtl:xl:h-[400px] relative mx-auto xl:my-0">
+    <div id="about" className="main-container w-full xl:w-[1050px] rtl:xl:h-[400px] relative mx-auto xl:my-0">
       <div className="flex w-full xl:w-[568.115px] xl:h-[400px] flex-col gap-[16px] justify-center items-end flex-nowrap z-[1]">
         <div className="flex w-full xl:w-[554px] flex-col items-start shrink-0 flex-nowrap relative z-[2]">
           <span className="w-full xl:h-[29px] self-stretch shrink-0 basis-auto text-[16px] font-medium leading-[29px] text-[#dbdbdb] relative text-start whitespace-nowrap z-[3]">
