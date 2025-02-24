@@ -20,7 +20,7 @@ function Partners({ t }: { t: TFunction }) {
         {["1", "2", "3", "4"].map((num) => (
           <div
             key={num}
-            className="group relative w-40 h-20 md:w-[179.457px] md:h-[79.88px] flex justify-center items-center bg-cover bg-no-repeat"
+            className="group relative z-50 w-40 h-20 md:w-[179.457px] md:h-[79.88px] flex justify-center items-center bg-cover bg-no-repeat"
           >
             <img
               src={`/assets/images/expo/${num}.svg`}
@@ -28,12 +28,15 @@ function Partners({ t }: { t: TFunction }) {
               alt={`${t("partners.logoAlt")} ${num}`}
             />
             {/* Spotlight Hover Effect */}
-            {[10, 15, 20, 25, 30, 35, 40].map((opacity, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_${opacity}%)] opacity-0 group-hover:opacity-70 transition duration-${300 + index * 100}`}
-              ></div>
-            ))}
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_45%)] opacity-0 group-hover:opacity-70 transition duration-300"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_5%)] opacity-0 group-hover:opacity-70 transition duration-400"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_10%)] opacity-0 group-hover:opacity-70 transition duration-500"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_15%)] opacity-0 group-hover:opacity-70 transition duration-600"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_20%)] opacity-0 group-hover:opacity-70 transition duration-700"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_25%)] opacity-0 group-hover:opacity-70 transition duration-800"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_30%)] opacity-0 group-hover:opacity-70 transition duration-900"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_35%)] opacity-0 group-hover:opacity-70 transition duration-1000"></div>
+            <div className="absolute inset-0 -top-16 -left-16 -right-16 -bottom-16 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_40%)] opacity-0 group-hover:opacity-70 transition duration-300"></div>
           </div>
         ))}
       </div>

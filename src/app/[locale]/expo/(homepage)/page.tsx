@@ -6,6 +6,7 @@ import {
   Products,
  Partners,
  Contact,
+ ImageCarousel,
 } from "./_components";
 
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
@@ -19,6 +20,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
       <AboutApp t={t}/>
       <OurStory t={t}/>
       <Products />
+      <ImageCarousel />
       <Partners t={t} />
       <Contact  t={t}/>
       </div>

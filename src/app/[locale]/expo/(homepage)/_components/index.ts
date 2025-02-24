@@ -7,3 +7,4 @@ export { default as Contact } from "./Contact";
 
 export { default as Partners } from "./Partners";
 export { default as Products } from "./Products";
+export { default as ImageCarousel } from "./ImageCarousel";
