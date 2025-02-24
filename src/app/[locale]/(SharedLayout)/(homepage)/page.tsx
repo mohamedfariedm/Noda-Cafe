@@ -1,5 +1,4 @@
 import initTranslations from "@/app/i18n";
-import { auth } from "@/auth";
 import { Container } from "@/components/Layout";
 import { Separator } from "@/components/ui/separator";
 import {

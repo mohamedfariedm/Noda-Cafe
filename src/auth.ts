@@ -52,99 +52,99 @@ interface Session2 {
   } & DefaultSession["user"];
 }
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
-  //...authConfig,
+// export const {
+//   handlers: { GET, POST },
+//   auth,
+//   signIn,
+//   signOut,
+// } = NextAuth({
+//   //...authConfig,
 
-  pages: {
-    signIn: "/login",
-  },
-  callbacks: {
-    async jwt({ token, user }) {
-      console.log("loggs-jwt-user", user);
-      console.log("loggs-jwt-token", token);
-      if (user) {
-        token.id = user.id;
-        token.email = user.email;
-        token.role = user.role;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      console.log("loggs-session-session", session);
-      console.log("loggs-session-token", token);
-      if (token) {
-        session.user.id = token.id as string;
-        session.user.email = token.email as string;
-        session.user.role = token.role as string | undefined;
-      }
-      console.log("loggs-session-session-after", session);
+//   pages: {
+//     signIn: "/login",
+//   },
+//   callbacks: {
+//     async jwt({ token, user }) {
+//       console.log("loggs-jwt-user", user);
+//       console.log("loggs-jwt-token", token);
+//       if (user) {
+//         token.id = user.id;
+//         token.email = user.email;
+//         token.role = user.role;
+//       }
+//       return token;
+//     },
+//     async session({ session, token }) {
+//       console.log("loggs-session-session", session);
+//       console.log("loggs-session-token", token);
+//       if (token) {
+//         session.user.id = token.id as string;
+//         session.user.email = token.email as string;
+//         session.user.role = token.role as string | undefined;
+//       }
+//       console.log("loggs-session-session-after", session);
 
-      return session;
-    },
-  },
-  providers: [
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials) {
-        const parsedCredentials = z
-          .object({ email: z.string().email(), password: z.string().min(6) })
-          .safeParse(credentials);
+//       return session;
+//     },
+//   },
+//   providers: [
+//     CredentialsProvider({
+//       name: "Credentials",
+//       credentials: {
+//         email: { label: "Email", type: "text" },
+//         password: { label: "Password", type: "password" },
+//       },
+//       async authorize(credentials) {
+//         const parsedCredentials = z
+//           .object({ email: z.string().email(), password: z.string().min(6) })
+//           .safeParse(credentials);
 
-        if (parsedCredentials.success) {
-          const { email, password } = parsedCredentials.data;
-          try {
-            const user = await fetchUser(email, password);
-            console.log("loggs-authorize-user", user);
+//         if (parsedCredentials.success) {
+//           const { email, password } = parsedCredentials.data;
+//           try {
+//             const user = await fetchUser(email, password);
+//             console.log("loggs-authorize-user", user);
 
-            return user;
-          } catch (error) {
-            console.log("loggs-authorize-error", error);
-            if (error instanceof Error) {
-              console.log("error.inside", error.message);
-              switch (error.message) {
-                case "UserNotRegistered":
-                  throw new UserNotRegisteredError();
-                case "EmailNotVerified":
-                  throw new EmailNotVerifiedError();
-                case "InvalidCredentials":
-                  throw new InvalidCredentialsError();
-                default:
-                  throw new CredentialsSignin();
-              }
-            }
-            throw new CredentialsSignin();
-          }
-        }
+//             return user;
+//           } catch (error) {
+//             console.log("loggs-authorize-error", error);
+//             if (error instanceof Error) {
+//               console.log("error.inside", error.message);
+//               switch (error.message) {
+//                 case "UserNotRegistered":
+//                   throw new UserNotRegisteredError();
+//                 case "EmailNotVerified":
+//                   throw new EmailNotVerifiedError();
+//                 case "InvalidCredentials":
+//                   throw new InvalidCredentialsError();
+//                 default:
+//                   throw new CredentialsSignin();
+//               }
+//             }
+//             throw new CredentialsSignin();
+//           }
+//         }
 
-        throw new CredentialsSignin();
-      },
-    }),
-  ],
-});
+//         throw new CredentialsSignin();
+//       },
+//     }),
+//   ],
+// });
 
-async function fetchUser(email: string, password: string) {
-  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/custom-auth`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
+// async function fetchUser(email: string, password: string) {
+//   const response = await fetch(`${process.env.NEXTAUTH_URL}/api/custom-auth`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ email, password }),
+//   });
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    console.log("loggs-fetch-errorData", errorData);
+//   if (!response.ok) {
+//     const errorData = await response.json();
+//     console.log("loggs-fetch-errorData", errorData);
 
-    throw new Error(errorData.error);
-  }
+//     throw new Error(errorData.error);
+//   }
 
-  const data = await response.json();
-  return { id: data.token, email: data.user.email, role: data.user.role };
-}
+//   const data = await response.json();
+//   return { id: data.token, email: data.user.email, role: data.user.role };
+// }
